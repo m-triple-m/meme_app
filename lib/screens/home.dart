@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:meme_app/screens/feed.dart';
+import 'package:meme_app/screens/profile.dart';
+import 'package:meme_app/screens/settings.dart';
 
-class Home extends StatelessWidget {
-  Home({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
-  List pages = [Feed(), Feed(), Feed()];
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final List<Widget> pages = [Feed(), Profile(), Settings()];
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +23,15 @@ class Home extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => pages[index],
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => pages[index],
+          //   ),
+          // );
+          setState(() {
+            currentIndex = index;
+          });
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -28,7 +40,7 @@ class Home extends StatelessWidget {
               icon: Icon(Icons.account_circle_rounded), label: 'Profile'),
         ],
       ),
-      body: Text('Home Screen'),
+      body: pages[currentIndex],
     );
   }
 }
