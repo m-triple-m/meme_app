@@ -18,10 +18,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        // backgroundColor: Colors.black,
+        currentIndex: currentIndex,
         onTap: (index) {
           // Navigator.push(
           //   context,
@@ -34,10 +34,19 @@ class _HomeState extends State<Home> {
           });
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.feed), label: 'Feed'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_rounded), label: 'Profile'),
+              icon: Icon(Icons.feed),
+              label: 'Feed',
+              backgroundColor: Colors.deepPurpleAccent),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_rounded),
+              label: 'Profile',
+              backgroundColor: Colors.blueAccent),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.amberAccent,
+          ),
         ],
       ),
       body: pages[currentIndex],

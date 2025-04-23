@@ -8,6 +8,8 @@ class Settings extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+        backgroundColor: Colors.amberAccent,
+        foregroundColor: Colors.black,
       ),
       body: Center(
         child: Text('Settings Screen'),

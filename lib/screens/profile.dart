@@ -13,6 +13,8 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
       ),
       body: Center(
         child: Text('Profile Screen'),
